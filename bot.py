@@ -1,12 +1,9 @@
 import os
 import logging
-from aiogram import Bot, Dispatcher, types
+import asyncio
+from aiogram import Bot, Dispatcher, types, F
 from aiogram.filters import CommandStart
 from aiogram.types import FSInputFile, InlineKeyboardMarkup, InlineKeyboardButton
-from aiogram.enums import ParseMode
-from aiogram import F
-
-import asyncio
 
 # Ваш токен
 TOKEN = os.getenv('BOT_TOKEN')
@@ -41,7 +38,7 @@ async def cmd_start(message: types.Message):
 # Обработка нажатий на кнопки
 @dp.callback_query(F.data == "programs")
 async def send_programs(callback: types.CallbackQuery):
-    image = FSInputFile("price_image.jpg")  # Убедись, что картинка лежит рядом с ботом
+    image = FSInputFile("price_image.jpg")  # Убедись, что картинка лежит рядом с файлом
     await callback.message.answer_photo(image, caption="Here are our Programs and Pricing!")
 
 @dp.callback_query(F.data == "book_call")
