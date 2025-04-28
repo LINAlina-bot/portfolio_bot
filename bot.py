@@ -1,3 +1,4 @@
+import os
 import logging
 from aiogram import Bot, Dispatcher, types
 from aiogram.filters import CommandStart
@@ -8,7 +9,7 @@ from aiogram import F
 import asyncio
 
 # Ваш токен
-TOKEN = '8004688816:AAFRZt0q4VQglEaFXlAMfMlxraZrq1MU19E'
+TOKEN = os.getenv('BOT_TOKEN')
 # Ваш Telegram ID
 MY_TELEGRAM_ID = 1736108313
 
